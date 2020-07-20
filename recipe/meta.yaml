@@ -1,5 +1,5 @@
 {% set name = "bpemb" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: dd6ba916560ab1c79df2699f7a3002091a31957e2661a770cb92ac8febfc06ca
+  sha256: 7ef2564f656ec48c4621f555c4431c4ec71900f3c45c8d2203f9c78446e8391c
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: True  # [not linux]
+  skip: true  # [not linux]
 
 requirements:
   host:
@@ -35,7 +35,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: "Byte-pair embeddings in 275 languages"
+  summary: Byte-pair embeddings in 275 languages
   doc_url: https://nlp.h-its.org/bpemb
   dev_url: https://github.com/bheinzerling/bpemb
 
