@@ -1,6 +1,7 @@
 {% set name = "bpemb" %}
 {% set version = "0.3.2" %}
 
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -11,17 +12,17 @@ source:
 
 build:
   number: 0
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [not linux]
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.0
   run:
     - gensim
     - numpy
-    - python
+    - python >=3.0
     - requests
     - sentencepiece
     - tqdm
@@ -29,6 +30,10 @@ requirements:
 test:
   imports:
     - bpemb
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://nlp.h-its.org/bpemb
