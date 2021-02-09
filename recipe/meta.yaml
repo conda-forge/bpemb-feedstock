@@ -18,11 +18,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.0
+    - python >=3
   run:
     - gensim
     - numpy
-    - python >=3.0
+    - python >=3
     - requests
     - sentencepiece
     - tqdm
