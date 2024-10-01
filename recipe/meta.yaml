@@ -1,5 +1,5 @@
 {% set name = "bpemb" %}
-{% set version = "0.3.3" %}
+{% set version = "0.3.6" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ad86ba9b1623ecc3be6fcc5ba4408e23a30e118b7e1d683d292f4be788798ffe
+  sha256: a33fa1dcdfaf3d4cb3eaebac430b6f23a684a888e1761f5a026ce3868153ee2d
 
 build:
   number: 0
