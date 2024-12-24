@@ -7,22 +7,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: ad86ba9b1623ecc3be6fcc5ba4408e23a30e118b7e1d683d292f4be788798ffe
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3
+    - python {{ python_min }}
   run:
     - gensim
     - numpy
-    - python >=3
+    - python >={{ python_min }}
     - requests
     - sentencepiece
     - tqdm
@@ -34,6 +34,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://nlp.h-its.org/bpemb
