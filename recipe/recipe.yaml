@@ -1,0 +1,55 @@
+schema_version: 1
+
+context:
+  version: "0.3.6"
+
+package:
+  name: bpemb
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/b/bpemb/bpemb-${{ version }}.tar.gz
+  sha256: a33fa1dcdfaf3d4cb3eaebac430b6f23a684a888e1761f5a026ce3868153ee2d
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - gensim
+    - numpy
+    - requests
+    - sentencepiece
+    - tqdm
+
+tests:
+  - python:
+      imports:
+        - bpemb
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: Byte-pair embeddings in 275 languages
+  homepage: https://nlp.h-its.org/bpemb
+  repository: https://github.com/bheinzerling/bpemb
+  documentation: https://nlp.h-its.org/bpemb
+
+extra:
+  recipe-maintainers:
+    - mxr-conda
+    - oblute
+    - rluria14
+    - ndmaxar
+    - mgorny
